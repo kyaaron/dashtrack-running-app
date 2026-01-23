@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Oswald", sans-serif;
     background-color: rgba(241, 242, 247, 1);
 }
 
@@ -17,26 +17,36 @@ body {
 
 /* Mobile structure styles */
 body {
-    max-width: 100%;
-    border: 1px solid black;
-    margin: 0 auto;
+    max-width: 92%;
+    margin: 20px auto 0;
 }
 header {
     display: flex;
     justify-content: space-between;
     width: 100%;
     height: 100px;
+    border-radius: 8px 8px 0 0;
+    margin: 0 auto;
+}
+#add-entry-section {
+    margin: 0 auto 20px;
+    width: 100%;
+    background-color: white;
+    border-radius: 0 0 8px 8px;
+    padding: 20px;
 }
 
-/* Header display styles */
+/* Display styles */
 header {
     background-color: rgba(39, 42, 71, 1);
     color: white;
     padding: 20px;
     margin: auto 0;
 }
+
 h1 {
     margin: auto 0;
+    font-size: 3.0rem;
 }
 #total-distance {
     background-color: white;
@@ -44,4 +54,65 @@ h1 {
     margin: auto 0;
     padding: 10px;
     border-radius: 8px;
+}
+h2, h3 {
+    text-align: center;
+    font-size: 2.0rem;
+}
+#add-entry-section {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    height: 50px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1.3rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(39, 42, 71, 1);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    margin-top: 10px;  /* equalizes spacing with inputs */
+}
+.card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px auto;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    font-family: 1.3rem;
+}
+
+/* 
+********* DEFAULT DESKTOP STYLES 
+*/
+@media (min-width: 768px) {
+    body {
+        max-width: 800px;
+    }
+    header {
+        height: 120px;
+        max-width: 100%;
+    }
+    #add-entry-section {
+        width: 100%;
+    }
+    .card {
+        width: 100%;
+    }
+    .measurement-stats {
+        font-size: 2.0rem;
+    }
 }

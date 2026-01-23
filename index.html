@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DashTrack</title>
@@ -13,6 +18,31 @@
             <h1>DashTrack</h1>
             <p id="total-distance">Total Distance: 0km</p>
         </header>
+        <section id="add-entry-section">
+            <h2>Add Entry</h2>
+            <div id="entry-form">
+                <input type="date" id="date-input">
+                <input type="number" id="distance-input" placeholder="Distance (km)" min="0" step="0.01">
+                <button id="add-entry-button">Add Entry</button>
+        </section>
+        <section id="results-cards-section">
+            <div class="card">
+                <h3>Total Weekly Kilometers</h3>
+                <p class="measurement-stats" id="total-runs">0km</p>
+            </div>
+            <div class="card">
+                <h3>Total Weekly Runs</h3>
+                <p class="measurement-stats" id="total-runs">0</p>
+            </div>
+            <div class="card">
+                <h3>Total All-time Kilometers</h3>
+                <p class="measurement-stats" id="total-runs">0km</p>
+            </div>
+            <div class="card">
+                <h3>Total All-time Runs</h3>
+                <p class="measurement-stats" id="total-runs">0</p>
+            </div>
+        </section>
     </section>
     <script src="scripts/scripts.js"></script>
 </body>
