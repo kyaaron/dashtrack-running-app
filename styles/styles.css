@@ -43,10 +43,20 @@ header {
     padding: 20px;
     margin: auto 0;
 }
-
+#title-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+}
+img {
+    height: 60px;
+    width: auto;
+    margin-right: 15px;
+}
 h1 {
     margin: auto 0;
-    font-size: 3.0rem;
+    font-size: 2.5rem;
 }
 #total-distance {
     background-color: white;
@@ -105,6 +115,9 @@ button {
     header {
         height: 120px;
         max-width: 100%;
+    }
+    h1 {
+        font-size: 3.5rem;
     }
     #add-entry-section {
         width: 100%;
