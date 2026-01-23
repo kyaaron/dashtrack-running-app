@@ -1,2 +1,2 @@
-# dashtrack-running-app
-Running tracker built with localStorage and TailwindCSS
+# Dashtrack
+An open-source running tracker using localStorage and TailwindCSS
