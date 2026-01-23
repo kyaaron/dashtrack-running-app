@@ -65,9 +65,17 @@ h1 {
     padding: 10px;
     border-radius: 8px;
 }
-h2, h3 {
+h2 {
     text-align: center;
     font-size: 2.0rem;
+}
+h3 {
+    font-size: 1.5rem;
+}
+.measurement-stats {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: auto 0;
 }
 #add-entry-section {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -118,6 +126,9 @@ button {
     }
     h1 {
         font-size: 3.5rem;
+    }
+    h3 {
+        font-size: 1.8rem;
     }
     #add-entry-section {
         width: 100%;
