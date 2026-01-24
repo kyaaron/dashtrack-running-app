@@ -101,6 +101,9 @@ button {
     cursor: pointer;
     margin-top: 10px;  /* equalizes spacing with inputs */
 }
+#clear-data {
+    background-color: lightcoral;
+}
 .card {
     background-color: white;
     border-radius: 8px;
@@ -111,6 +114,11 @@ button {
     display: flex;
     justify-content: space-between;
     font-family: 1.3rem;
+}
+
+/* TEMPORARY REMOVAL FROM SCREEN */
+.weekly-card {
+    display: none;
 }
 
 /* 
