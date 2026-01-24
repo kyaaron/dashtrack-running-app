@@ -28,8 +28,8 @@ const isCorrectInput = (date, distance) => {
 }
 
 const updateStatsDisplay = () => {
-    const totalWeeklyKmElement = document.querySelector("#total-weekly-km");
-    const totalWeeklyRunsElement = document.querySelector("#total-weekly-runs");
+    // const totalWeeklyKmElement = document.querySelector("#total-weekly-km");
+    // const totalWeeklyRunsElement = document.querySelector("#total-weekly-runs");
     const totalKmElement = document.querySelector("#total-km");
     const totalRunsElement = document.querySelector("#total-runs");
 
@@ -51,6 +51,15 @@ const getTotalRuns = () => {
     return localStorage.length;
 }
 
+const clearRunningData = () => {
+    localStorage.clear();
+    updateStatsDisplay();
+}
+
 updateStatsDisplay();
+
 const addEntryButton = document.querySelector('#add-entry-button');
+const clearDataButton = document.querySelector("#clear-data");
+
 addEntryButton.addEventListener('click', updateLocalStorage);
+clearDataButton.addEventListener('click', clearRunningData);
