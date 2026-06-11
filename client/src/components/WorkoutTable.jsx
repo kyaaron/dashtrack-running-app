@@ -1,4 +1,4 @@
-function WorkoutTable() {
+export default function WorkoutTable() {
   return (
     <section>
       <h2>Workout History</h2>
@@ -6,5 +6,3 @@ function WorkoutTable() {
     </section>
   );
 }
-
-export default WorkoutTable;

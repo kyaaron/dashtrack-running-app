@@ -1,4 +1,4 @@
-function WorkoutStats() {
+export default function WorkoutStats() {
   return (
     <section>
       <h2>Statistics</h2>
@@ -6,5 +6,3 @@ function WorkoutStats() {
     </section>
   );
 }
-
-export default WorkoutStats;
