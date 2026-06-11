@@ -24,5 +24,34 @@ This also means I do not have your data. It ONLY resides on your device, not in 
 - I would like to add a table to show all running records for all time (until cleared by the user)
 - I would like to improve the desktop UI to separate it from mobile and take advantage of extra screenspace
 
+## Miles / Kilometers toggle and distance input
+
+The distance field in the workout form shows an appended label (`miles` or `kilometers`) that stays in sync with the toggle in the header. The connection works through shared state in `App.jsx`.
+
+### Data flow
+
+1. **`App.jsx`** holds the current unit in React state with `useState("miles")`. Miles is the default on initial page load. This is done so any child component that uses the current unit will re-render when the toggle changes.
+2. **`Header.jsx`** receives two props from `App`:
+   - `unit` — the active unit (`"miles"` or `"kilometers"`)
+   - `onUnitChange` — updates that state when the user clicks a toggle button
+3. When the user clicks **Miles** or **Kilometers** in the header, `onUnitChange` runs with the selected value and updates `unit` in `App`.
+4. **`WorkoutForm.jsx`** receives the same `unit` value as a prop and renders it in the `<span>` appended to the distance `<input>`.
+
+```
+App (unit state)
+ ├── Header (toggle buttons → onUnitChange)
+ └── WorkoutForm (displays {unit} next to distance input)
+```
+
+### Where to look in the code
+
+| File | Role |
+|------|------|
+| `client/src/App.jsx` | Owns `unit` state and passes it to child components |
+| `client/src/components/Header.jsx` | Toggle UI; calls `onUnitChange("miles")` or `onUnitChange("kilometers")` |
+| `client/src/components/WorkoutForm.jsx` | Shows `{unit}` beside the distance input |
+
+Because `unit` lives in `App`, a single toggle click re-renders both the header (active button style) and the form (appended label) with the same value.
+
 ## Lessons learned
 This was my first project using localStorage. It's really easy to work with, and big time apps like Wordle prove that localStorage is a great way to store data locally in the browser that is private for the user. The user is also in control of the data. I also used GenAI (I gave it the "role" of being a product owner) to create an image of what the app could look like, and I used that to help plan the design. This is something I plan to do more with my upcoming apps so I can mimic the real world of working with a product team.

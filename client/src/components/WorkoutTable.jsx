@@ -1,3 +1,5 @@
+import convertDistance from "../utils/convertDistance";
+
 export default function WorkoutTable() {
   return (
     <section>

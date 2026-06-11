@@ -1,7 +1,10 @@
+import convertDistance from "../utils/convertDistance";
+
 const inputStyles =
   "w-full rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-gray-900 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20";
 
 export default function WorkoutForm({ unit }) {
+
   return (
     <section className="rounded-xl bg-white p-6 shadow-md">
       <h2 className="mb-6 text-xl font-semibold text-gray-900">
