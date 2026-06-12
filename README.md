@@ -24,6 +24,96 @@ This also means I do not have your data. It ONLY resides on your device, not in 
 - I would like to add a table to show all running records for all time (until cleared by the user)
 - I would like to improve the desktop UI to separate it from mobile and take advantage of extra screenspace
 
+## Running the app locally
+
+The project has two apps: the **backend** (`server/`) and the **frontend** (`client/`). Start the backend first so the API is available when the frontend loads.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) installed
+- [pnpm](https://pnpm.io/) installed (`npm install -g pnpm`)
+- A MongoDB Atlas cluster and database user (see backend steps below)
+- Your MongoDB connection string stored in a password manager or secrets storage (e.g. 1Password, Bitwarden) — **never commit this value to git**
+
+### Backend (`server/`)
+
+Run these steps in order from the project root:
+
+1. **Go to the server directory**
+   ```bash
+   cd server
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pnpm install
+   ```
+   This installs Express, Mongoose, CORS, and dotenv.
+
+3. **Create your environment file**
+   ```bash
+   cp .env.example .env
+   ```
+
+4. **Add your MongoDB connection string**
+   - Open MongoDB Atlas (or your secrets storage) and copy your connection string.
+   - Paste it into `server/.env` as `MONGODB_URI`.
+   - Example format:
+     ```env
+     MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/dashtrack
+     PORT=3001
+     ```
+   - Replace `<username>`, `<password>`, and the cluster host with your real values.
+   - `server/.env` is listed in `server/.gitignore` and must stay local.
+
+5. **Start the backend dev server**
+   ```bash
+   pnpm dev
+   ```
+   You should see `Connected to MongoDB` and `Server running on http://localhost:3001`.
+
+6. **Verify the API (optional)**
+   ```bash
+   curl http://localhost:3001/api/health
+   ```
+   Expected response: `{"status":"ok"}`
+
+Leave this terminal running while you use the app.
+
+### Frontend (`client/`)
+
+Open a **second terminal** and run these steps in order:
+
+1. **Go to the client directory**
+   ```bash
+   cd client
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pnpm install
+   ```
+   This installs React, Vite, and ESLint.
+
+3. **Start the frontend dev server**
+   ```bash
+   pnpm dev
+   ```
+   Vite prints a local URL (usually `http://localhost:5173`). Open it in your browser.
+
+4. **How the frontend reaches the backend**
+   - No `.env` file is required on the frontend for local development.
+   - Vite proxies `/api` requests to `http://localhost:3001`, so the React app talks to the Express server automatically.
+
+### Quick reference
+
+| App      | Directory | Start command | URL                          |
+|----------|-----------|---------------|------------------------------|
+| Backend  | `server/` | `pnpm dev`    | http://localhost:3001        |
+| Frontend | `client/` | `pnpm dev`    | http://localhost:5173 (typical) |
+
+Both terminals must stay open while developing.
+
 ## Miles / Kilometers toggle and distance input
 
 The distance field in the workout form shows an appended label (`miles` or `kilometers`) that stays in sync with the toggle in the header. The connection works through shared state in `App.jsx`.
