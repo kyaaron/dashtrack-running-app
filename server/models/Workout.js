@@ -27,4 +27,5 @@ const workoutSchema = new mongoose.Schema(
   }
 );
 
-export const Workout = mongoose.model("Workout", workoutSchema);
+// Third argument matches the collection name in MongoDB Atlas
+export const Workout = mongoose.model("Workout", workoutSchema, "workout_collection");

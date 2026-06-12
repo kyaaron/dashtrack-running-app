@@ -60,7 +60,7 @@ Run these steps in order from the project root:
    - Paste it into `server/.env` as `MONGODB_URI`.
    - Example format:
      ```env
-     MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/dashtrack
+     MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/dashtrack_database
      PORT=3001
      ```
    - Replace `<username>`, `<password>`, and the cluster host with your real values.
